@@ -1,8 +1,10 @@
 import {AuthService} from "./auth.service";
-import {Body, Controller, Post, Req, Res} from "@nestjs/common";
+import {Body, Controller, Post, Req, Res, UsePipes} from "@nestjs/common";
 import {CreateUserDto} from "../users/dto/create-user.dto";
 import {Response} from "express";
+import {ValidationPipe} from "../pipes/validation.pipe";
 
+@UsePipes(new ValidationPipe())
 @Controller("auth")
 export class AuthController {
   constructor(private authService: AuthService) {}
@@ -14,7 +16,7 @@ export class AuthController {
       httpOnly: true,
       secure: true,
       sameSite: "none",
-    })
+    });
     return res.send(tokens);
   }
 
@@ -25,7 +27,7 @@ export class AuthController {
       httpOnly: true,
       secure: true,
       sameSite: "none",
-    })
+    });
     return res.send(tokens);
   }
 
@@ -37,7 +39,7 @@ export class AuthController {
       httpOnly: true,
       secure: true,
       sameSite: "none",
-    })
+    });
     return res.send(tokens);
   }
 }

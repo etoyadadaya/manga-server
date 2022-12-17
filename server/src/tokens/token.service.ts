@@ -15,7 +15,7 @@ export class TokensService {
       verify(token, process.env.REFRESH_KEY);
 
       const refresh = decode(token) as {
-        id: number
+        id: number;
       };
 
       return this.generateKeys(refresh.id);

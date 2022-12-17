@@ -9,7 +9,7 @@ export class UsersService {
   constructor(
     @InjectModel(User) private userRepository: typeof User,
     private roleService: RolesService
-    ) {}
+  ) {}
 
   async createUser(dto: CreateUserDto) {
     const user = await this.userRepository.create(dto);
@@ -22,9 +22,9 @@ export class UsersService {
   async getAllUsers() {
     return await this.userRepository.findAll({
       include: {
-        all: true
-      }
-    })
+        all: true,
+      },
+    });
   }
 
   getUserByEmail(email: string) {
@@ -45,6 +45,6 @@ export class UsersService {
       await user.$add("role", role.id);
       return dto;
     }
-    throw new HttpException('user or role is not found', HttpStatus.NOT_FOUND);
+    throw new HttpException("user or role is not found", HttpStatus.NOT_FOUND);
   }
 }

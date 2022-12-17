@@ -1,7 +1,9 @@
 import {RolesService} from "./roles.service";
-import {Body, Controller, Get, Param, Post} from "@nestjs/common";
+import {Body, Controller, Get, Param, Post, UsePipes} from "@nestjs/common";
 import {CreateRoleDto} from "./dto/create-role.dto";
+import {ValidationPipe} from "../pipes/validation.pipe";
 
+@UsePipes(new ValidationPipe())
 @Controller("roles")
 export class RolesController {
   constructor(private roleService: RolesService) {}
