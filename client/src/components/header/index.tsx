@@ -1,6 +1,6 @@
 import React, {Dispatch, FC, HTMLProps} from "react";
 import styles from "./styles.scss";
-import button from "../button/button";
+import Button from "../button/button";
 
 interface IHeader extends HTMLProps<HTMLElement> {
   toggleMenu: Dispatch<boolean>;
@@ -10,17 +10,14 @@ const Header: FC<IHeader> = ({toggleMenu}) => {
   return (
     <div className={styles.header}>
       <div className={styles.chapterSelector}>
-        <button
+        <Button
           onClick={() => toggleMenu(true)}
           className={styles.listBtn}
         >
           Список эпизодов
-        </button>
+        </Button>
         <div className={styles.episodeSelector}>
-          <button
-            onClick={() => {}}
-            className={styles.episodeBtn}
-          >
+          <Button className={styles.episodeBtn}>
             <svg
               width="24"
               height="24"
@@ -31,17 +28,14 @@ const Header: FC<IHeader> = ({toggleMenu}) => {
               <path
                 d="M14.4 16.7998L9.60001 11.9998L14.4 7.19981"
                 stroke="black"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
-          </button>
+          </Button>
           <p className={styles.episodeNumber}>Номер эпизода: </p>
-          <button
-            onClick={() => {}}
-            className={styles.episodeBtn}
-          >
+          <Button className={styles.episodeBtn}>
             <svg
               width="24"
               height="24"
@@ -52,12 +46,12 @@ const Header: FC<IHeader> = ({toggleMenu}) => {
               <path
                 d="M9.59999 7.2002L14.4 12.0002L9.59999 16.8002"
                 stroke="black"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
-          </button>
+          </Button>
         </div>
       </div>
     </div>

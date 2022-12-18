@@ -16,7 +16,7 @@ const Menu: FC<IMenu> = ({
   setIsMenuActive,
 }) => {
   const getEpisodesNumber = episode => {
-    let content = [];
+    const content = [];
     for (let i = 1; i <= episode; i++) {
       content.push(
         <button

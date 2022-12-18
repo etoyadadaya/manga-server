@@ -1,4 +1,3 @@
-import {useCallback} from "react";
 import {useImages} from "../useImages/useImages";
 
 export const useEpisodeImages = (name: string, episode: number) => {

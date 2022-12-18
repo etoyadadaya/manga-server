@@ -1,3 +1,4 @@
+/* eslint react-hooks/exhaustive-deps: "off" */
 import {useEffect, useState} from "react";
 import useApiCall from "../useApiCall";
 
