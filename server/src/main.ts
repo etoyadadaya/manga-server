@@ -1,10 +1,13 @@
 import {NestFactory} from "@nestjs/core";
 import {AppModule} from "./app.module";
-import helmet from "helmet";
 
 async function runtime() {
   const app = await NestFactory.create(AppModule);
-  app.use(helmet());
+  app.enableCors({
+      origin: "*",
+      credentials: true,
+      methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+  });
   await app.listen(666);
 }
 

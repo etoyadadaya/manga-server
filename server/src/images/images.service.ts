@@ -4,7 +4,7 @@ import {Image} from "./images.model";
 export class ImagesService {
   constructor(@InjectModel(Image) private imageRepository) {}
 
-  async getImage(name: string, episode: number) {
+  getImage(name: string, episode: number) {
     return this.imageRepository.findOne({
       where: {
         name: name,
@@ -12,6 +12,14 @@ export class ImagesService {
       },
       attributes: {
         exclude: ["name", "id", "episode"],
+      },
+    });
+  }
+
+  getCount(name: string) {
+    return this.imageRepository.count({
+      where: {
+        name: name
       },
     });
   }

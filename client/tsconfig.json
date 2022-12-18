@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "jsx": "react",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "noEmitOnError": true,
+    "removeComments": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "baseUrl": "./",
+    "paths": {
+      "app": [
+        "src/app"
+      ],
+      "pages/*": [
+        "src/pages/*"
+      ]
+    }
+  },
+  "exclude": [
+    "../../Manga/node_modules"
+  ]
+}

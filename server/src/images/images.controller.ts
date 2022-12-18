@@ -20,4 +20,11 @@ export class ImagesController {
   ) {
     return this.imagesService.getImage(name, episode);
   }
+
+  @Get("/:name")
+  getCount(
+    @Param("name") name: string,
+  ) {
+    return this.imagesService.getCount(name);
+  }
 }
