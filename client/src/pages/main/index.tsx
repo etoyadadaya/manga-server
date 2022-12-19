@@ -1,11 +1,12 @@
 import React, {FC, useEffect, useState} from "react";
 import styles from "./styles.scss";
-import {Image, Carousel} from "antd";
 import Header from "../../components/header";
 import Menu from "../../components/menu";
 import {useEpisodes} from "../../hooks/useEpisodes/useEpisodes";
 import {useEpisodeImages} from "../../hooks/useEpidodeImages/useEpisodeImages";
 import {useQuery} from "../../hooks/useQuery/useQuery";
+import Car from "../../components/carousel";
+import {Carousel, Image} from "antd";
 
 // vol.05 - 22 episodes; next vol.06
 //http://localhost:10880/?name=berserk
@@ -13,6 +14,7 @@ import {useQuery} from "../../hooks/useQuery/useQuery";
 const Main: FC = () => {
   const name = useQuery().get("name");
   const [episodeNum, setEpisodeNum] = useState<number>(1);
+  const [isVertical, setIsVertical] = useState<boolean>(true);
   const [isMenuActive, setIsMenuActive] = useState<boolean>(false);
   const {episodes, isLoading} = useEpisodes(name);
   const images = useEpisodeImages(name, episodeNum);
@@ -40,22 +42,39 @@ const Main: FC = () => {
             setIsMenuActive={setIsMenuActive}
           />
           <div className={styles.container}>
+            <button
+              className={styles.btn}
+              onClick={() => setIsVertical(!isVertical)}
+            >
+              CLICK
+            </button>
             <Header toggleMenu={setIsMenuActive} />
             <div className={styles.cards}>
-              <Carousel
-                swipe={true}
-                adaptiveHeight={true}
-              >
-                {images().map((link, key) => (
-                  <Image
-                    preview={false}
-                    decoding={"async"}
-                    src={link}
-                    alt=""
-                    key={key}
-                  />
-                ))}
-              </Carousel>
+              {isVertical === true ? (
+                <Car>
+                  {images().map((link, key) => (
+                    <img
+                      className={styles.img}
+                      src={link}
+                      alt=""
+                      key={key}
+                    />
+                  ))}
+                </Car>
+              ) : (
+                <>
+                  <Carousel adaptiveHeight={true}>
+                    {images().map((link, key) => (
+                      <Image
+                        preview={false}
+                        src={link}
+                        alt=""
+                        key={key}
+                      />
+                    ))}
+                  </Carousel>
+                </>
+              )}
             </div>
           </div>
         </>

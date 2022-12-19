@@ -34,7 +34,7 @@ const Header: FC<IHeader> = ({toggleMenu}) => {
               />
             </svg>
           </Button>
-          <p className={styles.episodeNumber}>Номер эпизода: </p>
+          <p className={styles.episodeNumber}>Эпизод: </p>
           <Button className={styles.episodeBtn}>
             <svg
               width="24"
