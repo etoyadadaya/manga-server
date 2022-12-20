@@ -24,7 +24,7 @@ const Menu: FC<IMenu> = ({
   if (!isSettings) {
     const getEpisodesNumber = episode => {
       const content = [];
-      for (let i = 1; i <= episode; i++) {
+      for (let i = 0; i < episode; i++) {
         content.push(
           <button
             onClick={() => setEpisode(i)}
@@ -52,7 +52,7 @@ const Menu: FC<IMenu> = ({
           })}
         >
           <div className={styles.content}>
-            <p className={styles.episodeTitle}>Эпизод: </p>
+            <p className={styles.episodeTitle}>Выберите эпизод: </p>
             {getEpisodesNumber(episodes)}
           </div>
         </div>

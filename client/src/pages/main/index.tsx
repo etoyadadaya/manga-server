@@ -11,9 +11,11 @@ import {Carousel, Image} from "antd";
 // vol.05 - 22 episodes; next vol.06
 //http://localhost:10880/?name=berserk
 
+//vol.15 - 94; next 95
+
 const Main: FC = () => {
   const name = useQuery().get("name");
-  const [episodeNum, setEpisodeNum] = useState<number>(1);
+  const [episodeNum, setEpisodeNum] = useState<number>(0);
   const [isVertical, setIsVertical] = useState<boolean>(true);
   const [isMenuActive, setIsMenuActive] = useState<boolean>(false);
   const [isSettingsActive, setIsSettingsActive] = useState<boolean>(false);

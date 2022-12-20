@@ -34,7 +34,7 @@ const Header: FC<IHeader> = ({
           <button
             className={styles.episodeBtn}
             onClick={() => {
-              prevEpisode > 0 ? setEpisode(prevEpisode) : "";
+              prevEpisode >= 0 ? setEpisode(prevEpisode) : "";
             }}
           >
             <svg
