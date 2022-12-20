@@ -22,9 +22,7 @@ export class ImagesController {
   }
 
   @Get("/:name")
-  getCount(
-    @Param("name") name: string,
-  ) {
+  getCount(@Param("name") name: string) {
     return this.imagesService.getCount(name);
   }
 }

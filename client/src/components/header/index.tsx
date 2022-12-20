@@ -3,21 +3,40 @@ import styles from "./styles.scss";
 import Button from "../button/button";
 
 interface IHeader extends HTMLProps<HTMLElement> {
-  toggleMenu: Dispatch<boolean>;
+  toggleMenu?: Dispatch<boolean>;
+  toggleSettings?: Dispatch<boolean>;
+  episodeNumber?: number;
+  setEpisode?: Dispatch<number>;
+  totalEpisodes?: number;
 }
 
-const Header: FC<IHeader> = ({toggleMenu}) => {
+const Header: FC<IHeader> = ({
+  toggleMenu,
+  toggleSettings,
+  episodeNumber,
+  setEpisode,
+  totalEpisodes,
+}) => {
+  const prevEpisode = episodeNumber - 1;
+  const nextEpisode = episodeNumber + 1;
+
   return (
     <div className={styles.header}>
       <div className={styles.chapterSelector}>
         <Button
           onClick={() => toggleMenu(true)}
           className={styles.listBtn}
+          variant={"header"}
         >
           Список эпизодов
         </Button>
         <div className={styles.episodeSelector}>
-          <Button className={styles.episodeBtn}>
+          <button
+            className={styles.episodeBtn}
+            onClick={() => {
+              prevEpisode > 0 ? setEpisode(prevEpisode) : "";
+            }}
+          >
             <svg
               width="24"
               height="24"
@@ -33,9 +52,14 @@ const Header: FC<IHeader> = ({toggleMenu}) => {
                 strokeLinejoin="round"
               />
             </svg>
-          </Button>
-          <p className={styles.episodeNumber}>Эпизод: </p>
-          <Button className={styles.episodeBtn}>
+          </button>
+          <p className={styles.episodeNumber}>Эпизод: {episodeNumber}</p>
+          <button
+            className={styles.episodeBtn}
+            onClick={() => {
+              nextEpisode <= totalEpisodes ? setEpisode(nextEpisode) : "";
+            }}
+          >
             <svg
               width="24"
               height="24"
@@ -51,9 +75,16 @@ const Header: FC<IHeader> = ({toggleMenu}) => {
                 strokeLinejoin="round"
               />
             </svg>
-          </Button>
+          </button>
         </div>
       </div>
+      <Button
+        onClick={() => toggleSettings(true)}
+        className={styles.listBtn}
+        variant={"header"}
+      >
+        Настройки
+      </Button>
     </div>
   );
 };

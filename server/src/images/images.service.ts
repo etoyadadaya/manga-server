@@ -19,7 +19,7 @@ export class ImagesService {
   getCount(name: string) {
     return this.imageRepository.count({
       where: {
-        name: name
+        name: name,
       },
     });
   }

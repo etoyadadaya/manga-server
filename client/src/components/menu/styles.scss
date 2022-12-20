@@ -29,19 +29,26 @@
   flex-direction: column;
 }
 
+.episodeTitle {
+  font-weight: 500;
+}
+
 .episodeBtn {
-  width: 90%;
   display: flex;
   justify-content: left;
-  font-size: 24px;
   z-index: 999;
   cursor: pointer;
-  border: 1px solid black;
-  padding: 5px;
   transition: background-color 0.2s;
+  width: 87%;
+  color: #070606;
+  border: 1px solid rgba(7, 6, 6, 0.1);
+  padding: 12px;
+  background: rgba(7, 6, 6, 0.1);
+  border-radius: 6px;
+  font-size: 16px;
 
   &:active {
-    background: pink;
+    background: orange;
   }
 }
 
@@ -61,4 +68,83 @@
     opacity: 0.6;
     pointer-events: all;
   }
+}
+
+.positionButtonsWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.positionTitle {
+  font-weight: 500;
+}
+
+.positionButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin-right: 60px;
+}
+
+.vertical {
+  width: 50%;
+  font-size: 20px;
+
+  &:checked {
+    background: orange;
+  }
+}
+
+.horizontal {
+  padding-right: 15px;
+  width: 50%;
+  font-size: 20px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 85%;
+  height: 40px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  display: none;
+}
+
+/* The slider */
+.slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  color: #070606;
+  border: 1px solid rgba(7, 6, 6, 0.1); //
+  padding: 12px 0;
+  font-size: 12px;
+}
+
+input:checked + .slider {
+  background-color: orange;
+  color: white;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px orange;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
 }

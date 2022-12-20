@@ -40,3 +40,17 @@
   background: none;
   text-decoration: underline;
 }
+
+.header {
+  width: 150px;
+  color: #070606;
+  border: 1px solid rgba(7, 6, 6, 0.1);
+  padding: 12px 5px;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+
+  &:active {
+    background: orange;
+  }
+}

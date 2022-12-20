@@ -1,7 +1,8 @@
 .header {
   display: flex;
   align-items: center;
-  padding: 0 10px;
+  justify-content: space-between;
+  padding: 0 25px;
   gap: 10px;
   width: 100%;
   height: 80px;
@@ -9,6 +10,7 @@
   top: 0;
   left: 0;
   right: 0;
+  background: #fffdfa;
 }
 
 .btn {
@@ -24,6 +26,7 @@
   display: flex;
   align-items: center;
   height: 50px;
+  gap: 50px;
 }
 
 .listBtn {
@@ -36,9 +39,14 @@
 
 .episodeSelector {
   display: flex;
-  width: 500px;
+  justify-content: space-between;
+  width: 200px;
   align-items: center;
   gap: 20px;
+}
+
+.episodeNumber {
+  font-weight: 500;
 }
 
 .episodeBtn {
@@ -47,4 +55,8 @@
   &:active {
     opacity: 0.5;
   }
+}
+
+.vertical {
+  color: black;
 }

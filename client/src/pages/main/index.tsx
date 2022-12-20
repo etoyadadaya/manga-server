@@ -16,18 +16,19 @@ const Main: FC = () => {
   const [episodeNum, setEpisodeNum] = useState<number>(1);
   const [isVertical, setIsVertical] = useState<boolean>(true);
   const [isMenuActive, setIsMenuActive] = useState<boolean>(false);
+  const [isSettingsActive, setIsSettingsActive] = useState<boolean>(false);
   const {episodes, isLoading} = useEpisodes(name);
   const images = useEpisodeImages(name, episodeNum);
 
   useEffect(() => {
-    if (isMenuActive) {
+    if (isMenuActive || isSettingsActive) {
       document.body.style.overflow = "hidden";
     }
 
     return () => {
       document.body.style.overflow = "auto";
     };
-  }, [isMenuActive]);
+  }, [isMenuActive, isSettingsActive]);
 
   return (
     <>
@@ -40,17 +41,25 @@ const Main: FC = () => {
             episodes={episodes}
             isMenuActive={isMenuActive}
             setIsMenuActive={setIsMenuActive}
+            isSettings={false}
+          />
+          <Menu
+            isMenuActive={isSettingsActive}
+            setIsMenuActive={setIsSettingsActive}
+            isSettings={true}
+            setIsVertical={setIsVertical}
+            isVertical={isVertical}
           />
           <div className={styles.container}>
-            <button
-              className={styles.btn}
-              onClick={() => setIsVertical(!isVertical)}
-            >
-              CLICK
-            </button>
-            <Header toggleMenu={setIsMenuActive} />
+            <Header
+              toggleMenu={setIsMenuActive}
+              toggleSettings={setIsSettingsActive}
+              episodeNumber={episodeNum}
+              setEpisode={setEpisodeNum}
+              totalEpisodes={episodes}
+            />
             <div className={styles.cards}>
-              {isVertical === true ? (
+              {isVertical ? (
                 <Car>
                   {images().map((link, key) => (
                     <img
