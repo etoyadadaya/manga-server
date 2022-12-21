@@ -1,5 +1,6 @@
 import {Injectable} from "@nestjs/common";
 import {decode, sign, verify} from "jsonwebtoken";
+import {RefreshDto} from "../auth/dto/refresh.dto";
 
 @Injectable()
 export class TokensService {
@@ -10,15 +11,17 @@ export class TokensService {
     };
   }
 
-  validate(token: string) {
+  validate(tokens: RefreshDto) {
     try {
-      verify(token, process.env.REFRESH_KEY);
+      verify(tokens.refresh_token, process.env.REFRESH_KEY);
 
-      const refresh = decode(token) as {
-        id: number;
-      };
+      const access = decode(tokens.access_token) as {id: number};
+      const refresh = decode(tokens.refresh_token) as {id: number};
 
-      return this.generateKeys(refresh.id);
+      if (access.id !== refresh.id) {
+        return;
+      }
+      return this.generateKeys(access.id);
     } catch (err) {
       return;
     }

@@ -14,7 +14,7 @@ const Button: FC<Button> = ({children, variant, onClick}) => (
       [styles.close]: variant === "close",
       [styles.auth]: variant === "auth",
       [styles.header]: variant === "header",
-      [styles.login]: variant === "login"
+      [styles.login]: variant === "login",
     })}
     onClick={onClick}
   >

@@ -9,6 +9,7 @@ import {
 import {UsersService} from "../users/users.service";
 import {compare, hash} from "bcryptjs";
 import {TokensService} from "../tokens/token.service";
+import {RefreshDto} from "./dto/refresh.dto";
 
 @Injectable()
 export class AuthService {
@@ -37,8 +38,8 @@ export class AuthService {
     return this.tokenService.generateKeys(user.id);
   }
 
-  async refresh(refresh: string) {
-    const tokens = this.tokenService.validate(refresh);
+  refresh(refreshDto: RefreshDto) {
+    const tokens = this.tokenService.validate(refreshDto);
 
     if (!tokens) {
       throw new ForbiddenException({

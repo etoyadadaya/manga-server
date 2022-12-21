@@ -1,5 +1,5 @@
-import { useRecoilState, useSetRecoilState } from "recoil";
-import { useTokenizedApiCall } from "../useTokenizedApiCall/useTokenizedApiCall";
+import {useRecoilState, useSetRecoilState} from "recoil";
+import {useTokenizedApiCall} from "../useTokenizedApiCall/useTokenizedApiCall";
 import auth from "../../store/auth/atom";
 import user from "../../store/user/atom";
 import UserCache from "../../services/userCache/userCache";
@@ -20,7 +20,7 @@ export const useCheckAuth = () => {
     if (UserCache.checkStore()) {
       authHost
         .post<Tokens>("/auth/refresh")
-        .then((res) => {
+        .then(res => {
           setAuth({
             isAuth: true,
             isLoading: Auth.isLoading,
@@ -31,7 +31,7 @@ export const useCheckAuth = () => {
             try {
               user = UserCache.getStore();
             } catch (e) {
-              authHost.get<User>("/users").then((res) => {
+              authHost.get<User>("/users").then(res => {
                 user = res.data;
               });
             }
@@ -47,7 +47,7 @@ export const useCheckAuth = () => {
           } else {
             authHost
               .get<User>("/users")
-              .then((res) => {
+              .then(res => {
                 setUser({
                   id: res.data.id,
                   email: res.data.email,

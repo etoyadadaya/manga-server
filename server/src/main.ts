@@ -8,8 +8,6 @@ async function runtime() {
   app.enableCors({
     origin: ["http://localhost:10880", "http://127.0.0.1:10880"],
     credentials: true,
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
-    maxAge: 5
   });
   await app.listen(666);
 }

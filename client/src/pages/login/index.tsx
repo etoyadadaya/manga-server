@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import styles from "./styles.scss";
-import { useSetRecoilState } from "recoil";
+import {useSetRecoilState} from "recoil";
 import auth from "../../store/auth/atom";
 import user from "../../store/user/atom";
-import { useForm } from "react-hook-form";
-import { useTokenizedApiCall } from "../../hooks/useTokenizedApiCall/useTokenizedApiCall";
-import { User } from "../../types/user/user";
+import {useForm} from "react-hook-form";
+import {useTokenizedApiCall} from "../../hooks/useTokenizedApiCall/useTokenizedApiCall";
+import {User} from "../../types/user/user";
 import useApiCall from "../../hooks/useApiCall";
 import Button from "../../components/button/button";
 import Input from "../../components/input/input";
@@ -22,13 +22,13 @@ const Login = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm({ mode: "onBlur" });
+    formState: {errors},
+  } = useForm({mode: "onBlur"});
 
-  const submit = handleSubmit((data) => {
+  const submit = handleSubmit(data => {
     apiCall
       .post(signIn ? "/auth/registration" : "auth/login", data)
-      .then((res) => {
+      .then(res => {
         getUser(res.data.access_token);
       });
   });
@@ -40,7 +40,7 @@ const Login = () => {
       token: token,
     });
     setTimeout(() => {
-      authHost.get<User>("/users/@me").then((res) => {
+      authHost.get<User>("/users/@me").then(res => {
         UserCache.setStore({
           id: res.data.id,
           email: res.data.email,
@@ -62,7 +62,10 @@ const Login = () => {
     <div className={styles.container}>
       <div className={styles.content}>
         <h1 className={styles.welcome}>Welcome Back!</h1>
-        <form onSubmit={submit} className={styles.wrap}>
+        <form
+          onSubmit={submit}
+          className={styles.wrap}
+        >
           <Input
             register={register("email", {
               required: "Required field",
@@ -89,14 +92,20 @@ const Login = () => {
             placeholder="Enter your password"
           />
           <div className={styles.buttons}>
-            <Button type={"submit"} variant="primary">
+            <Button
+              type={"submit"}
+              variant="primary"
+            >
               {signIn ? "Registration" : "Login"}
             </Button>
             <div className={styles.switch}>
               <p className={styles.needAcc}>
                 {!signIn ? "Need an account?" : "Already have account?"}
               </p>
-              <Button onClick={() => setSignIn(!signIn)} variant="switch">
+              <Button
+                onClick={() => setSignIn(!signIn)}
+                variant="switch"
+              >
                 {!signIn ? "Registration" : "Login"}
               </Button>
             </div>

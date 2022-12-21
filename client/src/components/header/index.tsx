@@ -17,7 +17,7 @@ const Header: FC<IHeader> = ({
   episodeNumber,
   setEpisode,
   totalEpisodes,
-  mangaName
+  mangaName,
 }) => {
   const prevEpisode = episodeNumber - 1;
   const nextEpisode = episodeNumber + 1;
@@ -27,7 +27,9 @@ const Header: FC<IHeader> = ({
       <div className={styles.chapterSelector}>
         <div className={styles.mangaNameWrap}>
           <p className={styles.readingNow}>Сейчас читаете:</p>
-          <p className={styles.mangaName}>{mangaName.charAt(0).toUpperCase() + mangaName.slice(1)}</p>
+          <p className={styles.mangaName}>
+            {mangaName.charAt(0).toUpperCase() + mangaName.slice(1)}
+          </p>
         </div>
         <div className={styles.episodeSelector}>
           <button

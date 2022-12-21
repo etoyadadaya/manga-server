@@ -1,4 +1,4 @@
-import { User } from "../../types/user/user";
+import {User} from "../../types/user/user";
 
 class UserCache {
   public getStore = (): User => {

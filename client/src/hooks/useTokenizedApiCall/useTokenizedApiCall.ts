@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useRecoilState } from "recoil";
+import {useRecoilState} from "recoil";
 import auth from "../../store/auth/atom";
 
 const authHost = axios.create({
@@ -11,27 +11,27 @@ const authHost = axios.create({
 });
 
 export const useTokenizedApiCall = () => {
-  const [{ token }, setAuth] = useRecoilState(auth);
+  const [{token}, setAuth] = useRecoilState(auth);
 
   authHost.interceptors.request.use(
-    (config) => {
+    config => {
       if (token) {
         config.headers!.Authorization = `Bearer ${token}`;
       }
       return config;
     },
-    (error) => Promise.reject(error)
+    error => Promise.reject(error)
   );
 
   authHost.interceptors.response.use(
-    (response) => response,
-    async (error) => {
+    response => response,
+    async error => {
       const originalRequest = error.config;
       if (error.response?.status === 401 && !originalRequest.retry) {
         originalRequest.retry = true;
         return authHost
-          .post<{ accessToken: string; refreshToken: string }>("/auth/refresh")
-          .then((res) => {
+          .post<{accessToken: string; refreshToken: string}>("/auth/refresh")
+          .then(res => {
             if (res.status === 201) {
               setAuth({
                 isAuth: false,
