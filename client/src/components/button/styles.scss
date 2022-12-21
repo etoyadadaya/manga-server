@@ -1,11 +1,17 @@
 .primary {
-  width: 92%;
+  width: 150px;
   color: #fffdfa;
   border: 1px solid rgba(7, 6, 6, 0.1);
-  padding: 12px;
+  padding: 10px 6px;
   background: rgba(7, 6, 6, 1);
   border-radius: 6px;
   font-size: 16px;
+  transition: background-color .3s;
+
+  &:active {
+    background: rgba(7, 6, 6, .1);
+    color: #070606;
+  }
 }
 
 .switch {
@@ -52,5 +58,21 @@
 
   &:active {
     background: orange;
+  }
+}
+
+.login {
+  width: 92%;
+  color: #070606;
+  border: 1px solid rgba(7, 6, 6, 0.1);
+  padding: 10px 6px;
+  background: rgba(255, 252, 248, 1);
+  border-radius: 6px;
+  font-size: 16px;
+  transition: background-color .3s;
+
+  &:active {
+    background: rgba(255, 252, 248, 0.5);
+    color: rgba(0, 0, 0, 1);
   }
 }

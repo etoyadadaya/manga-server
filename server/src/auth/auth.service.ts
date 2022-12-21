@@ -1,9 +1,10 @@
 import {CreateUserDto} from "../users/dto/create-user.dto";
 import {
+  ForbiddenException,
   HttpException,
   HttpStatus,
   Injectable,
-  UnauthorizedException,
+  UnauthorizedException
 } from "@nestjs/common";
 import {UsersService} from "../users/users.service";
 import {compare, hash} from "bcryptjs";
@@ -40,7 +41,7 @@ export class AuthService {
     const tokens = this.tokenService.validate(refresh);
 
     if (!tokens) {
-      throw new UnauthorizedException({
+      throw new ForbiddenException({
         message: "invalid tokens",
       });
     }

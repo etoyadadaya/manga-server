@@ -1,0 +1,8 @@
+### WebStorm ###
+.idea/
+
+### Dependency directories ###
+node_modules/
+
+### WLACK ###
+.DS_Store

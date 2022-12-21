@@ -38,6 +38,20 @@ export class UsersService {
     });
   }
 
+  getUserById(id: number) {
+    return this.userRepository.findOne({
+      where: {
+        id,
+      },
+      include: {
+        all: true,
+      },
+      attributes: {
+        exclude: ["password"],
+      },
+    });
+  }
+
   async addRole(dto: AddRoleDto) {
     const user = await this.userRepository.findByPk(dto.userId);
     const role = await this.roleService.getRoleByValue(dto.value);

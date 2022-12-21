@@ -8,6 +8,7 @@ interface IHeader extends HTMLProps<HTMLElement> {
   episodeNumber?: number;
   setEpisode?: Dispatch<number>;
   totalEpisodes?: number;
+  mangaName: string;
 }
 
 const Header: FC<IHeader> = ({
@@ -16,6 +17,7 @@ const Header: FC<IHeader> = ({
   episodeNumber,
   setEpisode,
   totalEpisodes,
+  mangaName
 }) => {
   const prevEpisode = episodeNumber - 1;
   const nextEpisode = episodeNumber + 1;
@@ -23,13 +25,10 @@ const Header: FC<IHeader> = ({
   return (
     <div className={styles.header}>
       <div className={styles.chapterSelector}>
-        <Button
-          onClick={() => toggleMenu(true)}
-          className={styles.listBtn}
-          variant={"header"}
-        >
-          Список эпизодов
-        </Button>
+        <div className={styles.mangaNameWrap}>
+          <p className={styles.readingNow}>Сейчас читаете:</p>
+          <p className={styles.mangaName}>{mangaName.charAt(0).toUpperCase() + mangaName.slice(1)}</p>
+        </div>
         <div className={styles.episodeSelector}>
           <button
             className={styles.episodeBtn}
@@ -53,11 +52,18 @@ const Header: FC<IHeader> = ({
               />
             </svg>
           </button>
-          <p className={styles.episodeNumber}>Эпизод: {episodeNumber}</p>
+          <Button
+            onClick={() => toggleMenu(true)}
+            className={styles.listBtn}
+            variant={"primary"}
+          >
+            <p className={styles.episodeList}>Список эпизодов</p>
+            <p className={styles.episodeNumber}>Эпизод: {episodeNumber}</p>
+          </Button>
           <button
             className={styles.episodeBtn}
             onClick={() => {
-              nextEpisode <= totalEpisodes ? setEpisode(nextEpisode) : "";
+              nextEpisode < totalEpisodes ? setEpisode(nextEpisode) : "";
             }}
           >
             <svg
@@ -81,9 +87,11 @@ const Header: FC<IHeader> = ({
       <Button
         onClick={() => toggleSettings(true)}
         className={styles.listBtn}
-        variant={"header"}
+        variant={"primary"}
       >
-        Настройки
+        <div className={styles.settingsWrap}>
+          <p>Настройки</p>
+        </div>
       </Button>
     </div>
   );

@@ -7,6 +7,7 @@ import {useEpisodeImages} from "../../hooks/useEpidodeImages/useEpisodeImages";
 import {useQuery} from "../../hooks/useQuery/useQuery";
 import Car from "../../components/carousel";
 import {Carousel, Image} from "antd";
+import useRequireAuth from "../../hooks/useRequireAuth/useRequireAuth";
 
 // vol.05 - 22 episodes; next vol.06
 //http://localhost:10880/?name=berserk
@@ -14,6 +15,7 @@ import {Carousel, Image} from "antd";
 //vol.15 - 94; next 95
 
 const Main: FC = () => {
+  useRequireAuth("/login");
   const name = useQuery().get("name");
   const [episodeNum, setEpisodeNum] = useState<number>(0);
   const [isVertical, setIsVertical] = useState<boolean>(true);
@@ -59,6 +61,7 @@ const Main: FC = () => {
               episodeNumber={episodeNum}
               setEpisode={setEpisodeNum}
               totalEpisodes={episodes}
+              mangaName={name}
             />
             <div className={styles.cards}>
               {isVertical ? (
@@ -74,7 +77,10 @@ const Main: FC = () => {
                 </Car>
               ) : (
                 <>
-                  <Carousel adaptiveHeight={true}>
+                  <Carousel
+                    adaptiveHeight={true}
+                    swipeToSlide={true}
+                  >
                     {images().map((link, key) => (
                       <Image
                         preview={false}

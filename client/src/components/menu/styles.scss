@@ -40,15 +40,16 @@
   cursor: pointer;
   transition: background-color 0.2s;
   width: 87%;
-  color: #070606;
+  color: #fffdfa;
   border: 1px solid rgba(7, 6, 6, 0.1);
   padding: 12px;
-  background: rgba(7, 6, 6, 0.1);
+  background: rgba(7, 6, 6, 0.9);
   border-radius: 6px;
   font-size: 16px;
 
   &:active {
-    background: orange;
+    background: rgba(7, 6, 6, .1);
+    color: #070606;
   }
 }
 
@@ -135,7 +136,7 @@
 }
 
 input:checked + .slider {
-  background-color: orange;
+  background-color: #070606;
   color: white;
 }
 

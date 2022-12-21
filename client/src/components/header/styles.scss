@@ -29,6 +29,21 @@
   gap: 50px;
 }
 
+.mangaNameWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.readingNow {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.mangaName {
+  font-size: 20px;
+}
+
 .listBtn {
   width: 200px;
   color: #070606;
@@ -40,13 +55,17 @@
 .episodeSelector {
   display: flex;
   justify-content: space-between;
-  width: 200px;
+  width: 250px;
   align-items: center;
   gap: 20px;
 }
 
 .episodeNumber {
   font-weight: 500;
+}
+
+.episodeList {
+  font-size: 10px;
 }
 
 .episodeBtn {
@@ -59,4 +78,11 @@
 
 .vertical {
   color: black;
+}
+
+.settingsWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }

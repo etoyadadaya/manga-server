@@ -16,6 +16,9 @@ export class AuthController {
       httpOnly: true,
       secure: true,
       sameSite: "none",
+      path: "/auth",
+      domain: "127.0.0.1",
+      maxAge: 60 * 60 * 24 * 60
     });
     return res.send(tokens);
   }
@@ -27,6 +30,9 @@ export class AuthController {
       httpOnly: true,
       secure: true,
       sameSite: "none",
+      path: "/auth",
+      domain: "127.0.0.1",
+      maxAge: 60 * 60 * 24 * 60
     });
     return res.send(tokens);
   }
@@ -39,6 +45,9 @@ export class AuthController {
       httpOnly: true,
       secure: true,
       sameSite: "none",
+      path: "/auth",
+      domain: "127.0.0.1",
+      maxAge: 60 * 60 * 24 * 60
     });
     return res.send(tokens);
   }

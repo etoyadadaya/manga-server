@@ -4,7 +4,7 @@ import styles from "./styles.scss";
 
 interface Input extends HTMLProps<HTMLInputElement> {
   placeholder?: string;
-  register: UseFormRegisterReturn;
+  register?: UseFormRegisterReturn;
   variant?: "primary";
 }
 

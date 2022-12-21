@@ -31,7 +31,7 @@ const Menu: FC<IMenu> = ({
             className={styles.episodeBtn}
             key={i}
           >
-            {i}
+            {`${i}.`}
           </button>
         );
       }
@@ -80,14 +80,16 @@ const Menu: FC<IMenu> = ({
               <div className={styles.positionButtons}>
                 <label className={styles.switch}>
                   <input
+                    checked={isVertical}
                     onClick={() => setIsVertical(true)}
-                    defaultChecked={true}
+                    // defaultChecked={true}
                     type={isVertical ? "checkbox" : "none"}
                   />
                   <span className={styles.slider}>Вертикальный</span>
                 </label>
                 <label className={styles.switch}>
                   <input
+                    checked={!isVertical}
                     onClick={() => setIsVertical(false)}
                     type={!isVertical ? "checkbox" : "none"}
                   />
