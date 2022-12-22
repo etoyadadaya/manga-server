@@ -72,6 +72,7 @@ const Login = () => {
               },
             })}
             placeholder="Enter your email"
+            variant="primary"
           />
           <Input
             register={register("password", {
@@ -86,6 +87,7 @@ const Login = () => {
               },
             })}
             placeholder="Enter your password"
+            variant="primary"
           />
           <div className={styles.buttons}>
             <Button

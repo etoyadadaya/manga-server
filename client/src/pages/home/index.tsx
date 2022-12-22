@@ -6,7 +6,9 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <Header type="home" />
-      <h1 className={styles.pageName}>Главная</h1>
+      <div className={styles.content}>
+        <h1 className={styles.pageName}>Главная</h1>
+      </div>
     </div>
   );
 };

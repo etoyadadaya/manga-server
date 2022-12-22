@@ -3,21 +3,14 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   background: #fffdfa;
 }
 
-.pageName {
-  font-weight: 500;
-  font-size: 16px;
-}
-
 .logo {
-  font-style: italic;
-  font-size: 50px;
+  font-style: normal;
+  font-size: 24px;
   text-transform: uppercase;
-  color: transparent;
+  color: rgba(255, 255, 255, 1);
   -webkit-text-stroke: #000;
   -webkit-text-stroke-width: 1px;
   transition: all 0.5s ease-in-out;
@@ -25,10 +18,27 @@
   letter-spacing: 0.2em;
 
   &:hover {
-    color: #cf210a;
+    color: rgba(0, 0, 0, 1);
   }
 }
 
 .link {
   text-decoration: none;
+}
+
+.img {
+  position: relative;
+  height: 350px;
+  width: 250px;
+}
+
+.poster {
+  width: 100%;
+  height: 100%;
+}
+
+.manga {
+  padding: 50px 40px;
+  display: flex;
+  gap: 20px;
 }

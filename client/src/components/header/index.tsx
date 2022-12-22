@@ -109,6 +109,8 @@ const Header: FC<IHeader> = ({
     );
   }
 
+  //TODO имя бы тайтла вынести куда-нибудь красивенько))
+
   if (type === "home") {
     return (
       <div className={styles.headerHome}>
@@ -129,6 +131,7 @@ const Header: FC<IHeader> = ({
               version="1.1"
               width="24"
               data-view-component="true"
+              strokeWidth="1"
             >
               <path
                 fillRule="evenodd"
