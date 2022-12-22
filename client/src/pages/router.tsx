@@ -9,6 +9,8 @@ import Public from "./settings/public";
 import Account from "./settings/account";
 import Appearance from "./settings/appearance";
 import Notifications from "./settings/notifications";
+import Home from "./home";
+import Profile from "./profile";
 
 const Router: FC = () => {
   useCheckAuth();
@@ -23,6 +25,18 @@ const Router: FC = () => {
         <Route
           path="/login"
           element={<Login />}
+        />
+        <Route
+          path="/home"
+          element={<Home />}
+        />
+        <Route
+          path="/profile"
+          element={<Profile />}
+        />
+        <Route
+          path="/admin"
+          element={<Admin />}
         />
         <Route
           path="/settings"
@@ -45,10 +59,6 @@ const Router: FC = () => {
             element={<Notifications />}
           />
         </Route>
-        <Route
-          path="/admin"
-          element={<Admin />}
-        />
       </Routes>
     </Suspense>
   );

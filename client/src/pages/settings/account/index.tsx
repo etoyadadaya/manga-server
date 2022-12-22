@@ -9,8 +9,8 @@ const Account = () => {
     <div>
       <div>
         <div className={styles.titleWrap}>
-          <h1 className={styles.title}>Account</h1>
-          <NavLink to="/">Go back</NavLink>
+          <h1 className={styles.title}>Аккаунт</h1>
+          <NavLink to="/profile">Вернуться в профиль</NavLink>
         </div>
         <div className={styles.content}>
           <h2 className={styles.title}>Изменить никнейм:</h2>

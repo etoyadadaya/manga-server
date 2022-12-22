@@ -1,6 +1,7 @@
 import React, {Dispatch, FC, HTMLProps} from "react";
 import styles from "./styles.scss";
 import clsx from "clsx";
+import Radio from "../radio";
 
 interface IMenu extends HTMLProps<HTMLDivElement> {
   episodes?: number;
@@ -31,7 +32,7 @@ const Menu: FC<IMenu> = ({
             className={styles.episodeBtn}
             key={i}
           >
-            {`${i}.`}
+            {`${i}`}
           </button>
         );
       }
@@ -78,23 +79,12 @@ const Menu: FC<IMenu> = ({
             <div className={styles.positionButtonsWrap}>
               <p className={styles.positionTitle}>Режим чтения:</p>
               <div className={styles.positionButtons}>
-                <label className={styles.switch}>
-                  <input
-                    checked={isVertical}
-                    onClick={() => setIsVertical(true)}
-                    // defaultChecked={true}
-                    type={isVertical ? "checkbox" : "none"}
-                  />
-                  <span className={styles.slider}>Вертикальный</span>
-                </label>
-                <label className={styles.switch}>
-                  <input
-                    checked={!isVertical}
-                    onClick={() => setIsVertical(false)}
-                    type={!isVertical ? "checkbox" : "none"}
-                  />
-                  <span className={styles.slider}>Горизонтальный</span>
-                </label>
+                <Radio
+                  checked={isVertical}
+                  setIsChecked={setIsVertical}
+                  firstTitle="Горизонтальный"
+                  secondTitle="Вертикальный"
+                />
               </div>
             </div>
           </div>

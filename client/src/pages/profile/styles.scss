@@ -1,0 +1,34 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fffdfa;
+}
+
+.pageName {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.logo {
+  font-style: italic;
+  font-size: 50px;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: #000;
+  -webkit-text-stroke-width: 1px;
+  transition: all 0.5s ease-in-out;
+  text-align: center;
+  letter-spacing: 0.2em;
+
+  &:hover {
+    color: #cf210a;
+  }
+}
+
+.link {
+  text-decoration: none;
+}

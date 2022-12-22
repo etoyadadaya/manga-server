@@ -9,7 +9,7 @@ const Public = () => {
     <div>
       <div className={styles.titleWrap}>
         <h1 className={styles.title}>Ваш профиль</h1>
-        <NavLink to="/">Go back</NavLink>
+        <NavLink to="/profile">Вернуться в профиль</NavLink>
       </div>
       <div className={styles.content}>
         <div className={styles.left}>

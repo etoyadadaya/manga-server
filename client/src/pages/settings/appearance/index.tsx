@@ -9,8 +9,8 @@ const Appearance = () => {
     <div>
       <div>
         <div className={styles.titleWrap}>
-          <h1 className={styles.title}>Appearance</h1>
-          <NavLink to="/">Go back</NavLink>
+          <h1 className={styles.title}>Внешний вид</h1>
+          <NavLink to="/profile">Вернуться в профиль</NavLink>
         </div>
         <div className={styles.content}>
           <h2 className={styles.title}>Выберите цветовую схему:</h2>

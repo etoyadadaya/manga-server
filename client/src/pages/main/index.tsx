@@ -62,6 +62,7 @@ const Main: FC = () => {
               setEpisode={setEpisodeNum}
               totalEpisodes={episodes}
               mangaName={name}
+              type="main"
             />
             <div className={styles.cards}>
               {isVertical ? (

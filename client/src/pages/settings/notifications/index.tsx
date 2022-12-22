@@ -18,8 +18,8 @@ const Notifications = () => {
     <div>
       <div>
         <div className={styles.titleWrap}>
-          <h1 className={styles.title}>Notifications</h1>
-          <NavLink to="/">Go back</NavLink>
+          <h1 className={styles.title}>Уведомления</h1>
+          <NavLink to="/profile">Вернуться в профиль</NavLink>
         </div>
         <div className={styles.content}>
           <h2 className={styles.title}>Хотите ли вы получать уведомления?:</h2>
@@ -37,7 +37,7 @@ const Notifications = () => {
           <div className={styles.positionButtons}>
             <Radio
               disabled={!isEnableNotifications}
-              checked={isEnableNewEpisodes}
+              checked={!isEnableNotifications ? false : isEnableNewEpisodes}
               setIsChecked={setIsEnableNewEpisodes}
               firstTitle="Нет"
               secondTitle="Да"
@@ -49,7 +49,7 @@ const Notifications = () => {
           <div className={styles.positionButtons}>
             <Radio
               disabled={!isEnableNotifications}
-              checked={isEnableWorks}
+              checked={!isEnableNotifications ? false : isEnableWorks}
               setIsChecked={setIsEnableWorks}
               firstTitle="Нет"
               secondTitle="Да"
