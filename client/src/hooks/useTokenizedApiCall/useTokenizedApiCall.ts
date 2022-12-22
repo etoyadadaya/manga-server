@@ -1,3 +1,4 @@
+/* eslint react-hooks/exhaustive-deps: "off" */
 import axios from "axios";
 import {useRecoilState} from "recoil";
 import auth from "../../store/auth/atom";

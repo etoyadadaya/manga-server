@@ -19,11 +19,7 @@ const Login = () => {
   const setAuth = useSetRecoilState(auth);
   const setUser = useSetRecoilState(user);
   const [signIn, setSignIn] = useState<boolean>(false);
-  const {
-    register,
-    handleSubmit,
-    formState: {errors},
-  } = useForm({mode: "onBlur"});
+  const {register, handleSubmit} = useForm({mode: "onBlur"});
 
   const submit = handleSubmit(data => {
     apiCall

@@ -4,7 +4,7 @@ import {
   HttpException,
   HttpStatus,
   Injectable,
-  UnauthorizedException
+  UnauthorizedException,
 } from "@nestjs/common";
 import {UsersService} from "../users/users.service";
 import {compare, hash} from "bcryptjs";

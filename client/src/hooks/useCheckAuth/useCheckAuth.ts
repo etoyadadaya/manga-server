@@ -1,3 +1,4 @@
+/* eslint react-hooks/exhaustive-deps: "off" */
 import {useRecoilState, useSetRecoilState} from "recoil";
 import {useTokenizedApiCall} from "../useTokenizedApiCall/useTokenizedApiCall";
 import auth from "../../store/auth/atom";

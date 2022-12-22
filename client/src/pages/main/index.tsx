@@ -15,7 +15,7 @@ import useRequireAuth from "../../hooks/useRequireAuth/useRequireAuth";
 //vol.15 - 94; next 95
 
 const Main: FC = () => {
-  useRequireAuth("/login");
+  // useRequireAuth("/login");
   const name = useQuery().get("name");
   const [episodeNum, setEpisodeNum] = useState<number>(0);
   const [isVertical, setIsVertical] = useState<boolean>(true);

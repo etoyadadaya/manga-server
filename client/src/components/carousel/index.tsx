@@ -4,7 +4,6 @@ import styles from "./styles.scss";
 
 type ICarouselProps = HTMLProps<HTMLElement>;
 
-//TODO 2 returns for 1st carousel and second with prop state isVertical
 const Carousel: FC<ICarouselProps> = ({children}) => {
   return (
     <>
