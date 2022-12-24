@@ -8,6 +8,8 @@ import {ImagesModule} from "./images/images.module";
 import {Image} from "./images/images.model";
 import {ServeStaticModule} from "@nestjs/serve-static";
 import {join} from "path";
+import {Manga} from "./manga/manga.model";
+import {MangaModule} from "./manga/manga.module";
 
 @Module({
   controllers: [],
@@ -21,7 +23,7 @@ import {join} from "path";
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [User, Image],
+      models: [User, Image, Manga],
       autoLoadModels: true,
     }),
     ServeStaticModule.forRoot({
@@ -30,6 +32,7 @@ import {join} from "path";
     AuthModule,
     UsersModule,
     ImagesModule,
+    MangaModule
   ],
 })
 export class AppModule {}
