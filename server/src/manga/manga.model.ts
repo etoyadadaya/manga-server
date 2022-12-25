@@ -20,6 +20,12 @@ export class Manga extends Model {
   })
   description: string;
 
+  @Column({
+    field: "episodes_num",
+    type: DataType.INTEGER,
+  })
+  episodesNum: number;
+
   @HasMany(() => Image)
   images: Image[];
 }

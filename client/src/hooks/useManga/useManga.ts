@@ -1,0 +1,25 @@
+/* eslint react-hooks/exhaustive-deps: "off" */
+import useApiCall from "../useApiCall";
+import {useEffect, useState} from "react";
+import {manga} from "../../types/manga/manga";
+
+export const useManga = (name: string) => {
+  const apiCall = useApiCall();
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [data, setData] = useState<manga>();
+
+  console.log(data);
+
+  useEffect(() => {
+    apiCall
+      .get<manga>(`/manga/${name}`)
+      .then(res => {
+        setData(res.data);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, []);
+
+  return {manga: data, isLoading};
+};

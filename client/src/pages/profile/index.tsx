@@ -2,11 +2,11 @@ import React from "react";
 import styles from "./styles.scss";
 import Header from "../../components/header";
 import {NavLink} from "react-router-dom";
-import {useCoversImages} from "../../hooks/useCoversImages/useCoversImages";
 import Car from "../../components/carousel";
+import {useManga} from "../../hooks/useManga/useManga";
 
 const Profile = () => {
-  const covers = useCoversImages("covers", "berserk");
+  console.log(useManga("berserk"));
   return (
     <div className={styles.container}>
       <Header type="home" />
@@ -17,16 +17,17 @@ const Profile = () => {
         >
           <p className={styles.logo}>Berserk</p>
         </NavLink>
-        <Car>
-          {covers().map((link, key) => (
-            <img
-              className={styles.img}
-              src={link}
-              alt=""
-              key={key}
-            />
-          ))}
-        </Car>
+
+        {/*<Car>*/}
+        {/*  {covers().map((link, key) => (*/}
+        {/*    <img*/}
+        {/*      className={styles.img}*/}
+        {/*      src={link}*/}
+        {/*      alt=""*/}
+        {/*      key={key}*/}
+        {/*    />*/}
+        {/*  ))}*/}
+        {/*</Car>*/}
       </div>
     </div>
   );

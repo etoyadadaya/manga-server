@@ -9,9 +9,6 @@ export class MangaService {
       where: {
         name: name
       },
-      include: {
-        all: true
-      },
       attributes: {
         exclude: [],
       },
