@@ -1,0 +1,62 @@
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  overflow-y: scroll;
+  will-change: transform;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .5s;
+
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.modalContent {
+  top: 50px;
+  position: absolute;
+  padding: 20px;
+  border-radius: 12px;
+  width: 80%;
+  background-color: white;
+  transform: scale(.5);
+  transition: transform .5s;
+
+  &.active {
+    transform: scale(1);
+  }
+}
+
+.modalContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.modalWrap {
+  display: flex;
+}
+
+.modalLeft {
+  width: 300px;
+  background: #000;
+}
+
+.title {
+  color: #000;
+  font-size: 30px;
+}
+
+.modalRight {
+  width: 100%;
+  background: pink;
+}

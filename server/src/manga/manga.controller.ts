@@ -16,4 +16,9 @@ export class MangaController {
   getByName (@Param("name") name: string) {
     return this.mangaService.getByName(name);
   }
+
+  @Get()
+  getAll() {
+    return this.mangaService.getAll();
+  }
 }

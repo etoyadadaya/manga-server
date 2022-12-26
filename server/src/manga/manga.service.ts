@@ -14,4 +14,8 @@ export class MangaService {
       },
     });
   }
+
+  getAll = () => {
+    return this.mangaRepository.findAll();
+  }
 }

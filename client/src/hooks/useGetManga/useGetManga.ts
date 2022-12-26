@@ -1,0 +1,16 @@
+import useApiCall from "../useApiCall";
+import {useEffect, useState} from "react";
+import {manga} from "../../types/manga/manga";
+
+export const useGetManga = () => {
+  const apiCall = useApiCall();
+  const [mangas, setMangas] = useState<manga[]>([]);
+
+  useEffect(() => {
+    apiCall.get<manga[]>("/manga").then(res => {
+      setMangas(res.data);
+    });
+  }, []);
+
+  return mangas;
+};

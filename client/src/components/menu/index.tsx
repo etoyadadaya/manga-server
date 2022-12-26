@@ -25,7 +25,6 @@ const Menu: FC<IMenu> = ({
   if (!isSettings) {
     const getEpisodesNumber = episode => {
       const content = [];
-      console.log(episode);
       for (let i = 0; i < episode; i++) {
         content.push(
           <button

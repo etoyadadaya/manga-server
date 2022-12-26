@@ -10,10 +10,6 @@ const Notifications = () => {
     useState<boolean>(false);
   const [isEnableWorks, setIsEnableWorks] = useState<boolean>(false);
 
-  console.log(isEnableNotifications);
-  console.log(isEnableNewEpisodes);
-  console.log(isEnableWorks);
-
   return (
     <div>
       <div>

@@ -8,6 +8,7 @@ import {Carousel, Image} from "antd";
 import useRequireAuth from "../../hooks/useRequireAuth/useRequireAuth";
 import {useManga} from "../../hooks/useManga/useManga";
 import {useImages} from "../../hooks/useImages/useImages";
+import {useGetManga} from "../../hooks/useGetManga/useGetManga";
 
 // vol.05 - 22 episodes; next vol.06
 //http://localhost:10880/?name=berserk
@@ -17,12 +18,13 @@ import {useImages} from "../../hooks/useImages/useImages";
 const Main: FC = () => {
   useRequireAuth("/login");
   const name = useQuery().get("name");
-  const [episodeNum, setEpisodeNum] = useState<number>(1);
+  const [episodeNum, setEpisodeNum] = useState<number>(0);
   const [isVertical, setIsVertical] = useState<boolean>(true);
   const [isMenuActive, setIsMenuActive] = useState<boolean>(false);
   const [isSettingsActive, setIsSettingsActive] = useState<boolean>(false);
   const {manga} = useManga(name);
   const images = useImages(name, episodeNum);
+  useGetManga();
 
   useEffect(() => {
     if (isMenuActive || isSettingsActive) {
@@ -57,7 +59,7 @@ const Main: FC = () => {
           episodeNumber={episodeNum}
           setEpisode={setEpisodeNum}
           totalEpisodes={manga?.episodesNum}
-          mangaName={name}
+          mangaName={manga?.title}
           type="main"
         />
         <div className={styles.cards}>
@@ -74,19 +76,23 @@ const Main: FC = () => {
             </Car>
           ) : (
             <>
-              <Carousel
-                adaptiveHeight={true}
-                swipeToSlide={true}
-              >
-                {images().map((link, key) => (
-                  <Image
-                    preview={false}
-                    src={link}
-                    alt=""
-                    key={key}
-                  />
-                ))}
-              </Carousel>
+              <div className={styles.carouselRoot}>
+                <div className={styles.carouselContainer}>
+                  <Carousel
+                    adaptiveHeight={true}
+                    swipeToSlide={true}
+                  >
+                    {images().map((link, key) => (
+                      <Image
+                        preview={false}
+                        src={link}
+                        alt=""
+                        key={key}
+                      />
+                    ))}
+                  </Carousel>
+                </div>
+              </div>
             </>
           )}
         </div>

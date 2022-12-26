@@ -8,8 +8,6 @@ export const useManga = (name: string) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [data, setData] = useState<manga>();
 
-  console.log(data);
-
   useEffect(() => {
     apiCall
       .get<manga>(`/manga/${name}`)
