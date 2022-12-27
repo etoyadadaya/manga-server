@@ -1,12 +1,9 @@
-import React, {FC, HTMLProps} from "react";
+import React, {FC} from "react";
 import {useNavigate} from "react-router-dom";
-import Button from "../button/button";
+import {ILinkProps} from "./link.types";
+import {Button} from "../button/button";
 
-interface ILinkProps extends HTMLProps<HTMLElement> {
-  to: string;
-}
-
-const Link: FC<ILinkProps> = ({className, to, children}) => {
+export const Link: FC<ILinkProps> = ({className, to, children}) => {
   const navigate = useNavigate();
 
   const handleClick = () => navigate(to);
@@ -20,5 +17,3 @@ const Link: FC<ILinkProps> = ({className, to, children}) => {
     </Button>
   );
 };
-
-export default Link;

@@ -1,19 +1,10 @@
-import React, {Dispatch, FC, HTMLProps} from "react";
-import styles from "./styles.scss";
-import Button from "../button/button";
+import React, {FC} from "react";
+import styles from "./header.module.scss";
 import {NavLink} from "react-router-dom";
+import {IHeader} from "./header.types";
+import {Button} from "../button/button";
 
-interface IHeader extends HTMLProps<HTMLElement> {
-  toggleMenu?: Dispatch<boolean>;
-  toggleSettings?: Dispatch<boolean>;
-  setEpisode?: Dispatch<number>;
-  totalEpisodes?: number;
-  episodeNumber?: number;
-  mangaName?: string;
-  type: "main" | "home";
-}
-
-const Header: FC<IHeader> = ({
+export const Header: FC<IHeader> = ({
   toggleMenu,
   toggleSettings,
   episodeNumber,
@@ -37,9 +28,7 @@ const Header: FC<IHeader> = ({
           </NavLink>
           <div className={styles.mangaNameWrap}>
             <p className={styles.readingNow}>Сейчас читаете:</p>
-            <p className={styles.mangaName}>
-              {mangaName}
-            </p>
+            <p className={styles.mangaName}>{mangaName}</p>
           </div>
           <div className={styles.episodeSelector}>
             <button
@@ -190,5 +179,3 @@ const Header: FC<IHeader> = ({
     );
   }
 };
-
-export default Header;

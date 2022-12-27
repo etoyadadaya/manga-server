@@ -32,7 +32,7 @@ import {MangaModule} from "./manga/manga.module";
     AuthModule,
     UsersModule,
     ImagesModule,
-    MangaModule
+    MangaModule,
   ],
 })
 export class AppModule {}

@@ -1,12 +1,8 @@
 import React, {FC} from "react";
 import {NavLink as Ref} from "react-router-dom";
 import clsx from "clsx";
-import styles from "./styles.scss";
-import {HTMLProps} from "react";
-
-export interface INavLink extends HTMLProps<HTMLElement> {
-  to: string;
-}
+import styles from "./navLink.module.scss";
+import {INavLink} from "./navLink.types";
 
 export const NavLink: FC<INavLink> = ({
   to,

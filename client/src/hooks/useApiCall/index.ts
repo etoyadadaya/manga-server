@@ -9,6 +9,4 @@ const host = axios.create({
   },
 });
 
-const useApiCall = () => host;
-
-export default useApiCall;
+export const useApiCall = () => host;

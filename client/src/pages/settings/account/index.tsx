@@ -1,8 +1,6 @@
 import React from "react";
 import styles from "./styles.scss";
-import {NavLink} from "../../../components/navLink";
-import Input from "../../../components/input/input";
-import Button from "../../../components/button/button";
+import {Button, Input, NavLink} from "../../../components";
 
 const Account = () => {
   return (

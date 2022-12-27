@@ -1,10 +1,8 @@
-import React, {FC, HTMLProps} from "react";
+import React, {FC} from "react";
+import styles from "./carousel.module.scss";
+import {ICarouselProps} from "./carousel.types";
 
-import styles from "./styles.scss";
-
-type ICarouselProps = HTMLProps<HTMLElement>;
-
-const Carousel: FC<ICarouselProps> = ({children}) => {
+export const Carousel: FC<ICarouselProps> = ({children}) => {
   return (
     <>
       <div className={styles.carouselRoot}>
@@ -15,5 +13,3 @@ const Carousel: FC<ICarouselProps> = ({children}) => {
     </>
   );
 };
-
-export default Carousel;

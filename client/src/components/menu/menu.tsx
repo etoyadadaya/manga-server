@@ -1,19 +1,10 @@
-import React, {Dispatch, FC, HTMLProps} from "react";
-import styles from "./styles.scss";
+import React, {FC} from "react";
+import styles from "./menu.module.scss";
 import clsx from "clsx";
-import Radio from "../radio";
+import {IMenu} from "./menu.types";
+import {Radio} from "../radio/radio";
 
-interface IMenu extends HTMLProps<HTMLDivElement> {
-  episodes?: number;
-  setEpisode?: Dispatch<number>;
-  isMenuActive: boolean;
-  setIsMenuActive: Dispatch<boolean>;
-  isSettings: boolean;
-  setIsVertical?: Dispatch<boolean>;
-  isVertical?: boolean;
-}
-
-const Menu: FC<IMenu> = ({
+export const Menu: FC<IMenu> = ({
   episodes,
   setEpisode,
   isMenuActive,
@@ -38,7 +29,6 @@ const Menu: FC<IMenu> = ({
       }
       return content;
     };
-
 
     return (
       <>
@@ -94,5 +84,3 @@ const Menu: FC<IMenu> = ({
     );
   }
 };
-
-export default Menu;

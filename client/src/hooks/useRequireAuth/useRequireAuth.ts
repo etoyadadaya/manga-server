@@ -3,7 +3,7 @@ import {useNavigate} from "react-router-dom";
 import {useRecoilValue} from "recoil";
 import authAtom from "../../store/auth/atom";
 
-const useRequireAuth = (redirectUrl = "/") => {
+export const useRequireAuth = (redirectUrl = "/") => {
   const navigate = useNavigate();
   const {isAuth} = useRecoilValue(authAtom);
 
@@ -13,5 +13,3 @@ const useRequireAuth = (redirectUrl = "/") => {
     }
   }, [isAuth, redirectUrl, navigate]);
 };
-
-export default useRequireAuth;

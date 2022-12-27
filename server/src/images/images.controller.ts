@@ -1,8 +1,10 @@
 import {
-  Controller, Get, Param,
+  Controller,
+  Get,
+  Param,
   UsePipes,
   ValidationPipe,
-  ParseIntPipe
+  ParseIntPipe,
 } from "@nestjs/common";
 import {ImagesService} from "./images.service";
 import {MangaService} from "../manga/manga.service";
@@ -12,11 +14,14 @@ import {MangaService} from "../manga/manga.service";
 export class ImagesController {
   constructor(
     private imagesService: ImagesService,
-    private mangaService: MangaService,
+    private mangaService: MangaService
   ) {}
 
   @Get("/:name/:episodeID")
-  async getByName(@Param("name") name: string, @Param("episodeID", ParseIntPipe) episodeID: number) {
+  async getByName(
+    @Param("name") name: string,
+    @Param("episodeID", ParseIntPipe) episodeID: number
+  ) {
     const manga = await this.mangaService.getByName(name);
     return this.imagesService.getByID(manga.id, episodeID);
   }

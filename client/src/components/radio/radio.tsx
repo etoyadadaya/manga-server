@@ -1,15 +1,8 @@
-import React, {Dispatch, FC, HTMLProps} from "react";
-import styles from "./styles.scss";
+import React, {FC} from "react";
+import styles from "./radio.module.scss";
+import {IRadio} from "./radio.types";
 
-interface IRadio extends HTMLProps<HTMLInputElement> {
-  checked: boolean;
-  setIsChecked: Dispatch<boolean>;
-  disabled?: boolean;
-  firstTitle: string;
-  secondTitle: string;
-}
-
-const Radio: FC<IRadio> = ({
+export const Radio: FC<IRadio> = ({
   checked,
   setIsChecked,
   disabled = false,
@@ -41,5 +34,3 @@ const Radio: FC<IRadio> = ({
     </>
   );
 };
-
-export default Radio;

@@ -1,14 +1,14 @@
 import React, {FC, useEffect, useState} from "react";
 import styles from "./styles.scss";
-import Header from "../../components/header";
-import Menu from "../../components/menu";
-import {useQuery} from "../../hooks/useQuery/useQuery";
-import Car from "../../components/carousel";
 import {Carousel, Image} from "antd";
-import useRequireAuth from "../../hooks/useRequireAuth/useRequireAuth";
-import {useManga} from "../../hooks/useManga/useManga";
-import {useImages} from "../../hooks/useImages/useImages";
-import {useGetManga} from "../../hooks/useGetManga/useGetManga";
+import {
+  useGetManga,
+  useImages,
+  useManga,
+  useQuery,
+  useRequireAuth,
+} from "../../hooks";
+import {Header, Menu, Carousel as Car} from "../../components";
 
 // vol.05 - 22 episodes; next vol.06
 //http://localhost:10880/?name=berserk

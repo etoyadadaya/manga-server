@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles.scss";
 import {Outlet} from "react-router-dom";
-import {NavLink} from "../../components/navLink";
+import {NavLink} from "../../components";
 
 const Settings = () => {
   return (

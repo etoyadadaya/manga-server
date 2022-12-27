@@ -4,13 +4,13 @@ import Main from "./main";
 import Admin from "./admin";
 import Login from "./login";
 import Settings from "./settings";
-import {useCheckAuth} from "../hooks/useCheckAuth/useCheckAuth";
 import Public from "./settings/public";
 import Account from "./settings/account";
 import Appearance from "./settings/appearance";
 import Notifications from "./settings/notifications";
 import Home from "./home";
 import Profile from "./profile";
+import {useCheckAuth} from "../hooks";
 
 const Router: FC = () => {
   useCheckAuth();

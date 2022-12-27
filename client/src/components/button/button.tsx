@@ -1,12 +1,9 @@
-import React, {FC, HTMLProps} from "react";
-import styles from "./styles.scss";
+import React, {FC} from "react";
+import styles from "./button.module.scss";
 import clsx from "clsx";
+import {IButton} from "./button.types";
 
-interface Button extends HTMLProps<HTMLButtonElement> {
-  variant?: "primary" | "switch" | "close" | "auth" | "header" | "login";
-}
-
-const Button: FC<Button> = ({children, variant, onClick}) => (
+export const Button: FC<IButton> = ({children, variant, onClick}) => (
   <button
     className={clsx({
       [styles.primary]: variant === "primary",
@@ -21,5 +18,3 @@ const Button: FC<Button> = ({children, variant, onClick}) => (
     {children}
   </button>
 );
-
-export default Button;

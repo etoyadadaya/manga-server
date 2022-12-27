@@ -1,15 +1,9 @@
-import React, {FC, HTMLProps} from "react";
-import {UseFormRegisterReturn} from "react-hook-form";
+import React, {FC} from "react";
 import clsx from "clsx";
-import styles from "./styles.scss";
+import styles from "./input.module.scss";
+import {IInput} from "./input.types";
 
-interface Input extends HTMLProps<HTMLInputElement> {
-  placeholder?: string;
-  register?: UseFormRegisterReturn;
-  variant?: "primary" | "settings";
-}
-
-const Input: FC<Input> = ({placeholder, register, variant}) => (
+export const Input: FC<IInput> = ({placeholder, register, variant}) => (
   <input
     className={clsx({
       [styles.primary]: variant === "primary",
@@ -19,5 +13,3 @@ const Input: FC<Input> = ({placeholder, register, variant}) => (
     {...register}
   ></input>
 );
-
-export default Input;

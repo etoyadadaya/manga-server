@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import styles from "./styles.scss";
-import {NavLink} from "../../../components/navLink";
-import Radio from "../../../components/radio";
+import {Radio, NavLink} from "../../../components";
 
 const Notifications = () => {
   const [isEnableNotifications, setIsEnableNotifications] =

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import styles from "./styles.scss";
-import {NavLink} from "../../../components/navLink";
+import {NavLink} from "../../../components";
 
 const Appearance = () => {
   const [theme, setTheme] = useState<boolean>(false);

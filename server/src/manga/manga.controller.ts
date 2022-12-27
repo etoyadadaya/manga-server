@@ -1,10 +1,4 @@
-import {
-  Controller,
-  Get,
-  Param,
-  UsePipes,
-  ValidationPipe
-} from "@nestjs/common";
+import {Controller, Get, Param, UsePipes, ValidationPipe} from "@nestjs/common";
 import {MangaService} from "./manga.service";
 
 @UsePipes(new ValidationPipe())
@@ -13,7 +7,7 @@ export class MangaController {
   constructor(private mangaService: MangaService) {}
 
   @Get("/:name")
-  getByName (@Param("name") name: string) {
+  getByName(@Param("name") name: string) {
     return this.mangaService.getByName(name);
   }
 

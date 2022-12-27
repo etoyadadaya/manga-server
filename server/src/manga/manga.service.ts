@@ -7,15 +7,15 @@ export class MangaService {
   getByName = (name: string) => {
     return this.mangaRepository.findOne({
       where: {
-        name: name
+        name: name,
       },
       attributes: {
         exclude: [],
       },
     });
-  }
+  };
 
   getAll = () => {
     return this.mangaRepository.findAll();
-  }
+  };
 }

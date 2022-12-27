@@ -4,13 +4,10 @@ import {useSetRecoilState} from "recoil";
 import auth from "../../store/auth/atom";
 import user from "../../store/user/atom";
 import {useForm} from "react-hook-form";
-import {useTokenizedApiCall} from "../../hooks/useTokenizedApiCall/useTokenizedApiCall";
-import {User} from "../../types/user/user";
-import useApiCall from "../../hooks/useApiCall";
-import Button from "../../components/button/button";
-import Input from "../../components/input/input";
 import UserCache from "../../services/userCache/userCache";
-import useRequireNotAuth from "../../hooks/useRequireNotAuth/useRequireNotAuth";
+import {useApiCall, useRequireNotAuth, useTokenizedApiCall} from "../../hooks";
+import {User} from "../../types";
+import {Button, Input} from "../../components";
 
 const Login = () => {
   useRequireNotAuth("/?name=berserk");

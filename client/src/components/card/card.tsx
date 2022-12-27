@@ -1,14 +1,8 @@
-import React, {FC, HTMLProps} from "react";
-import styles from "./styles.scss";
-import {NavLink} from "../navLink";
+import React, {FC} from "react";
+import styles from "./card.module.scss";
+import {ICard} from "./card.types";
 
-interface ICard extends HTMLProps<HTMLElement> {
-  name: string;
-  title: string;
-  description?: string;
-}
-
-const Card: FC<ICard> = ({name, description, title, onClick, children}) => {
+export const Card: FC<ICard> = ({name, title, onClick, children}) => {
   return (
     <div className={styles.card}>
       <div className={styles.content}>
@@ -30,5 +24,3 @@ const Card: FC<ICard> = ({name, description, title, onClick, children}) => {
     </div>
   );
 };
-
-export default Card;

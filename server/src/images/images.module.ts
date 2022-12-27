@@ -8,10 +8,7 @@ import {MangaModule} from "../manga/manga.module";
 @Module({
   controllers: [ImagesController],
   providers: [ImagesService],
-  imports: [
-    SequelizeModule.forFeature([Image]),
-    MangaModule
-  ],
+  imports: [SequelizeModule.forFeature([Image]), MangaModule],
   exports: [ImagesService],
 })
 export class ImagesModule {}

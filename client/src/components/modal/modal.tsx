@@ -1,20 +1,13 @@
-import React, {Dispatch, FC, HTMLProps} from "react";
-
-import styles from "./styles.scss";
+import React, {FC} from "react";
+import styles from "./modal.module.scss";
 import clsx from "clsx";
+import {IModalProps} from "./modal.types";
 
-interface IModalProps extends HTMLProps<HTMLDivElement> {
-  active: boolean;
-  setActive: Dispatch<boolean>;
-  title: string;
-}
-
-const Modal: FC<IModalProps> = ({
+export const Modal: FC<IModalProps> = ({
   active,
   setActive,
-  children,
   className,
-  title,
+  modalData,
 }) => {
   const handleClick = () => {
     document.body.style.overflow = "auto";
@@ -38,9 +31,9 @@ const Modal: FC<IModalProps> = ({
           <div className={styles.modalContainer}>
             <div className={styles.modalWrap}>
               <div className={styles.modalLeft}>
-                <p className={styles.title}>{title}</p>
+                <p className={styles.title}>{modalData?.title}</p>
               </div>
-              <div className={styles.modalRight}></div>
+              <div className={styles.modalRight}>{modalData?.description}</div>
             </div>
           </div>
         </div>
@@ -48,5 +41,3 @@ const Modal: FC<IModalProps> = ({
     </>
   );
 };
-
-export default Modal;

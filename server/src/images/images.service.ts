@@ -11,8 +11,8 @@ export class ImagesService {
         episode: episodeId,
       },
       attributes: {
-        exclude: ["id", "mangaID"]
-      }
+        exclude: ["id", "mangaID"],
+      },
     });
   }
 }

@@ -18,7 +18,7 @@ export class Image extends Model {
   @ForeignKey(() => Manga)
   @Column({
     field: "manga_id",
-    type: DataType.INTEGER
+    type: DataType.INTEGER,
   })
   mangaID: number;
 }

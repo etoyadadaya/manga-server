@@ -5,13 +5,13 @@ import {Image} from "../images/images.model";
 export class Manga extends Model {
   @Column({
     type: DataType.STRING,
-    unique: true
+    unique: true,
   })
   name: string;
 
   @Column({
     type: DataType.STRING,
-    unique: true
+    unique: true,
   })
   title: string;
 

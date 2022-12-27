@@ -1,36 +1,45 @@
 import React, {FC, useState} from "react";
 import styles from "./styles.scss";
-import Header from "../../components/header";
-import {useGetManga} from "../../hooks/useGetManga/useGetManga";
-import Card from "../../components/card";
-import Modal from "../../components/modal";
+import {useGetManga} from "../../hooks";
+import {Card, Header, Modal} from "../../components";
 
 const Profile: FC = () => {
   const mangas = useGetManga();
   const [isModalActive, setModalActive] = useState<boolean>(false);
+  const [modalData, setModalData] = useState<{
+    title: string;
+    description: string;
+  }>();
 
   return (
-    <div className={styles.container}>
-      <Header type="home" />
-      <div className={styles.manga}>
-        {mangas.map((manga, key) => (
-          <>
-            <Card
-              onClick={() => setModalActive(!isModalActive)}
-              name={manga.name}
-              title={manga.title}
-              description={manga.description}
-              key={key}
-            />
-            <Modal
-              active={isModalActive}
-              setActive={setModalActive}
-              title={manga.title}
-            />
-          </>
-        ))}
+    <>
+      <Modal
+        active={isModalActive}
+        setActive={setModalActive}
+        modalData={modalData}
+      />
+      <div className={styles.container}>
+        <Header type="home" />
+        <div className={styles.manga}>
+          {mangas.map((manga, key) => (
+            <>
+              <Card
+                onClick={() => {
+                  setModalActive(!isModalActive);
+                  setModalData({
+                    title: manga.title,
+                    description: manga.description,
+                  });
+                }}
+                name={manga.name}
+                title={manga.title}
+                key={key}
+              />
+            </>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

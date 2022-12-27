@@ -1,6 +1,6 @@
 /* eslint react-hooks/exhaustive-deps: "off" */
 import {useEffect, useState} from "react";
-import useApiCall from "../useApiCall";
+import {useApiCall} from "../useApiCall";
 
 export const useImages = (name: string, episode: number) => {
   const [count, setCount] = useState<number>(0);
