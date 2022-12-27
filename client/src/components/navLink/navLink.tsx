@@ -1,7 +1,7 @@
 import React, {FC} from "react";
-import {NavLink as Ref} from "react-router-dom";
-import clsx from "clsx";
 import styles from "./navLink.module.scss";
+import clsx from "clsx";
+import {NavLink as Ref} from "react-router-dom";
 import {INavLink} from "./navLink.types";
 
 export const NavLink: FC<INavLink> = ({

@@ -1,13 +1,13 @@
 import React, {useState} from "react";
 import styles from "./styles.scss";
+import {useApiCall, useRequireNotAuth, useTokenizedApiCall} from "../../hooks";
+import {Button, Input} from "../../components";
 import {useSetRecoilState} from "recoil";
+import {useForm} from "react-hook-form";
+import {User} from "../../types";
 import auth from "../../store/auth/atom";
 import user from "../../store/user/atom";
-import {useForm} from "react-hook-form";
 import UserCache from "../../services/userCache/userCache";
-import {useApiCall, useRequireNotAuth, useTokenizedApiCall} from "../../hooks";
-import {User} from "../../types";
-import {Button, Input} from "../../components";
 
 const Login = () => {
   useRequireNotAuth("/?name=berserk");

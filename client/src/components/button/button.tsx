@@ -3,9 +3,14 @@ import styles from "./button.module.scss";
 import clsx from "clsx";
 import {IButton} from "./button.types";
 
-export const Button: FC<IButton> = ({children, variant, onClick}) => (
+export const Button: FC<IButton> = ({
+  children,
+  variant,
+  onClick,
+  className,
+}) => (
   <button
-    className={clsx({
+    className={clsx([className], {
       [styles.primary]: variant === "primary",
       [styles.switch]: variant === "switch",
       [styles.close]: variant === "close",

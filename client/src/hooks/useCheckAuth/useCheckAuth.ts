@@ -1,11 +1,11 @@
 /* eslint react-hooks/exhaustive-deps: "off" */
 import {useRecoilState, useSetRecoilState} from "recoil";
 import {useTokenizedApiCall} from "../useTokenizedApiCall/useTokenizedApiCall";
+import {useEffect} from "react";
+import {User} from "../../types";
+import UserCache from "../../services/userCache/userCache";
 import auth from "../../store/auth/atom";
 import user from "../../store/user/atom";
-import UserCache from "../../services/userCache/userCache";
-import {User} from "../../types";
-import {useEffect} from "react";
 
 export type Tokens = {
   accessToken: string;

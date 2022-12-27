@@ -7,6 +7,7 @@ const Profile: FC = () => {
   const mangas = useGetManga();
   const [isModalActive, setModalActive] = useState<boolean>(false);
   const [modalData, setModalData] = useState<{
+    name: string;
     title: string;
     description: string;
   }>();
@@ -27,6 +28,7 @@ const Profile: FC = () => {
                 onClick={() => {
                   setModalActive(!isModalActive);
                   setModalData({
+                    name: manga.name,
                     title: manga.title,
                     description: manga.description,
                   });

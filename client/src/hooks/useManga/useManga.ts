@@ -1,6 +1,6 @@
 /* eslint react-hooks/exhaustive-deps: "off" */
-import {useApiCall} from "../useApiCall";
 import {useEffect, useState} from "react";
+import {useApiCall} from "../useApiCall";
 import {manga} from "../../types";
 
 export const useManga = (name: string) => {

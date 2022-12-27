@@ -22,7 +22,7 @@ export const Header: FC<IHeader> = ({
         <div className={styles.chapterSelector}>
           <NavLink
             className={styles.link}
-            to="/home"
+            to="/profile"
           >
             <p className={styles.logoSmall}>Manga Reader</p>
           </NavLink>

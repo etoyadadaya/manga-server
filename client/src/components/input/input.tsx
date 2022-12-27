@@ -1,6 +1,6 @@
 import React, {FC} from "react";
-import clsx from "clsx";
 import styles from "./input.module.scss";
+import clsx from "clsx";
 import {IInput} from "./input.types";
 
 export const Input: FC<IInput> = ({placeholder, register, variant}) => (

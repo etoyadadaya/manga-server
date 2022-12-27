@@ -23,11 +23,11 @@
 }
 
 .modalContent {
-  top: 50px;
+  top: 10%;
   position: absolute;
   padding: 20px;
   border-radius: 12px;
-  width: 80%;
+  width: 60%;
   background-color: white;
   transform: scale(0.5);
   transition: transform 0.5s;
@@ -47,14 +47,66 @@
 }
 
 .modalLeft {
-  width: 300px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  width: 400px;
+}
+
+.buttonsWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.read {
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: 500;
+  text-align: center;
+  width: 250px;
+  color: #fffdfa;
+  border: 1px solid rgba(7, 6, 6, 0.1);
+  padding: 10px 6px;
+  background: rgba(7, 6, 6, 1);
+  border-radius: 6px;
+  transition: background-color 0.3s;
+
+  &:active {
+    background: rgba(7, 6, 6, 0.1);
+    color: #070606;
+  }
+}
+
+.img {
+  object-fit: fill;
+  height: 350px;
+  width: 250px;
 }
 
 .title {
   color: #000;
   font-size: 30px;
+  font-weight: 500;
 }
 
 .modalRight {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   width: 100%;
+}
+
+.descriptionTitle {
+  margin-top: -12px;
+  padding: 10px 0;
+  font-size: 32px;
+  font-weight: 500;
+  border-bottom: 1px solid black;
+}
+
+.description {
+  font-size: 18px;
+  font-weight: 500;
 }

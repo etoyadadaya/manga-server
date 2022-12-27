@@ -16,7 +16,7 @@ export class Manga extends Model {
   title: string;
 
   @Column({
-    type: DataType.STRING,
+    type: DataType.STRING(2048)
   })
   description: string;
 

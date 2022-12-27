@@ -14,7 +14,6 @@ export const Card: FC<ICard> = ({name, title, onClick, children}) => {
         />
         <p
           onClick={onClick}
-          // to={`/?name=${name}`}
           className={styles.title}
         >
           {title}
