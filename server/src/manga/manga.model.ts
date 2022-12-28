@@ -26,6 +26,30 @@ export class Manga extends Model {
   })
   episodesNum: number;
 
+  @Column({
+    field: "author",
+    type: DataType.STRING
+  })
+  author: string;
+
+  @Column({
+    field: "status",
+    type: DataType.STRING
+  })
+  status: string;
+
+  @Column({
+    field: "year",
+    type: DataType.INTEGER,
+  })
+  year: number;
+
+  @Column({
+    field: "age",
+    type: DataType.INTEGER,
+  })
+  age: number;
+
   @HasMany(() => Image)
   images: Image[];
 }

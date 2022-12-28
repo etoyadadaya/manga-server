@@ -96,17 +96,45 @@
   flex-direction: column;
   gap: 10px;
   width: 100%;
+  justify-content: space-between;
+}
+
+.descriptionWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .descriptionTitle {
-  margin-top: -12px;
-  padding: 10px 0;
   font-size: 32px;
   font-weight: 500;
   border-bottom: 1px solid black;
+  font-style: normal;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 1);
+  -webkit-text-stroke: #000;
+  -webkit-text-stroke-width: 1px;
+  transition: all 0.5s ease-in-out;
+  text-align: center;
+  letter-spacing: 0.2em;
+
+  &:hover {
+    color: rgba(0, 0, 0, 1);
+  }
 }
 
 .description {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.aboutTitle {
   font-size: 18px;
   font-weight: 500;
 }

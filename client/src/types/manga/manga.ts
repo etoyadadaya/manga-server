@@ -4,6 +4,10 @@ export type manga = {
   description: string;
   title: string;
   episodesNum: number;
+  author: string;
+  status: string;
+  year: number;
+  age: number;
 };
 
 export type image = {

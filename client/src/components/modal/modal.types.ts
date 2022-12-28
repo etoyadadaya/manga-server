@@ -7,5 +7,9 @@ export interface IModalProps extends HTMLProps<HTMLDivElement> {
     name: string;
     title: string;
     description: string;
+    author: string;
+    status: string;
+    year: number;
+    age: number;
   };
 }

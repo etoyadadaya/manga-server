@@ -50,8 +50,26 @@ export const Modal: FC<IModalProps> = ({
                 </div>
               </div>
               <div className={styles.modalRight}>
-                <p className={styles.descriptionTitle}>{modalData?.title}</p>
-                <p className={styles.description}>{modalData?.description}</p>
+                <div className={styles.descriptionWrap}>
+                  <p className={styles.descriptionTitle}>{modalData?.title}</p>
+                  <p className={styles.description}>{modalData?.description}</p>
+                </div>
+                <div className={styles.aboutWrap}>
+                  <div className={styles.about}>
+                    <p
+                      className={styles.aboutTitle}
+                    >{`Год выхода: ${modalData?.year}`}</p>
+                    <p
+                      className={styles.aboutTitle}
+                    >{`Статус: ${modalData?.status}`}</p>
+                    <p
+                      className={styles.aboutTitle}
+                    >{`Автор: ${modalData?.author}`}</p>
+                    <p className={styles.aboutTitle}>
+                      {`Возрастной рейтинг: ${modalData?.age}+`}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

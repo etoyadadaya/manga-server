@@ -10,6 +10,10 @@ const Profile: FC = () => {
     name: string;
     title: string;
     description: string;
+    author: string;
+    status: string;
+    year: number;
+    age: number;
   }>();
 
   return (
@@ -31,6 +35,10 @@ const Profile: FC = () => {
                     name: manga.name,
                     title: manga.title,
                     description: manga.description,
+                    author: manga.author,
+                    status: manga.status,
+                    year: manga.year,
+                    age: manga.age,
                   });
                 }}
                 name={manga.name}
