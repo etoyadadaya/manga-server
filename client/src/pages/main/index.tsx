@@ -64,7 +64,7 @@ const Main: FC = () => {
         />
         <div className={styles.cards}>
           {isVertical ? (
-            <Car>
+            <Car variant="vertical">
               {images().map((link, key) => (
                 <img
                   className={styles.img}

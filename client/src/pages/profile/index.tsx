@@ -24,7 +24,7 @@ const Profile: FC = () => {
         modalData={modalData}
       />
       <div className={styles.container}>
-        <Header type="home" />
+        <Header type="profile" />
         <div className={styles.manga}>
           {mangas.map((manga, key) => (
             <>

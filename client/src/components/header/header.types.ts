@@ -7,5 +7,5 @@ export interface IHeader extends HTMLProps<HTMLElement> {
   totalEpisodes?: number;
   episodeNumber?: number;
   mangaName?: string;
-  type: "main" | "home";
+  type: "main" | "home" | "profile";
 }

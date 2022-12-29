@@ -1,3 +1,5 @@
 import {HTMLProps} from "react";
 
-export type ICarouselProps = HTMLProps<HTMLElement>;
+export interface ICarouselProps extends HTMLProps<HTMLElement> {
+  variant: "vertical" | "horizontal";
+}

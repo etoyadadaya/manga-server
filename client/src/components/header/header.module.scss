@@ -86,7 +86,7 @@
 
 //---------------------------
 
-.headerHome {
+.headerProfile {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -94,7 +94,6 @@
   gap: 10px;
   width: 100%;
   height: 80px;
-  background: #fffdfa;
   border: 1px solid rgba(7, 6, 6, 0.1);
 }
 
@@ -152,4 +151,79 @@
 .title {
   font-size: 18px;
   font-weight: 500;
+}
+
+//--------------------------------
+
+.headerHome {
+  display: flex;
+  position: absolute;
+  z-index: 999;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0 0 40px;
+  gap: 10px;
+  width: 100%;
+  height: 80px;
+  border: 1px solid rgba(7, 6, 6, 0.1);
+}
+
+.logoSmallHome {
+  font-style: normal;
+  font-size: 16px;
+  width: 100px;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: #000;
+  -webkit-text-stroke-width: 0.5px;
+  transition: all 0.5s ease-in-out;
+  text-align: center;
+  letter-spacing: 0.2em;
+
+  &:hover {
+    color: #000;
+  }
+}
+
+.logoHome {
+  font-style: normal;
+  font-size: 24px;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: #000;
+  -webkit-text-stroke-width: 1px;
+  transition: all 0.5s ease-in-out;
+  text-align: center;
+  letter-spacing: 0.2em;
+
+  &:hover {
+    color: #000;
+  }
+}
+
+.link {
+  text-decoration: none;
+}
+
+.left {
+  display: flex;
+  width: 300px;
+  align-items: center;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  gap: 20px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.svg {
+  fill: #fffdfa;
 }

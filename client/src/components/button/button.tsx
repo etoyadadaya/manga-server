@@ -17,6 +17,7 @@ export const Button: FC<IButton> = ({
       [styles.auth]: variant === "auth",
       [styles.header]: variant === "header",
       [styles.login]: variant === "login",
+      [styles.profile]: variant === "profile",
     })}
     onClick={onClick}
   >
