@@ -3,7 +3,7 @@ import styles from "./slider.module.scss";
 import {ISlider} from "./slider.types";
 import {useGetManga} from "../../hooks";
 
-const Slider: FC<ISlider> = () => {
+export const Slider: FC<ISlider> = () => {
   const mangas = useGetManga();
   const [current, setCurrent] = useState(0);
   const data: string[] = [];
@@ -19,16 +19,16 @@ const Slider: FC<ISlider> = () => {
 
   const arr = images();
 
-  // TODO mb fix
+  // TODO need to ask someone for help
   // console.log(arr);
 
   const slideRight = () => {
     setCurrent(current === arr.length - 1 ? 0 : current + 1);
   };
 
-  const slideLeft = () => {
-    setCurrent(current === 0 ? arr.length - 1 : current - 1);
-  };
+  // const slideLeft = () => {
+  //   setCurrent(current === 0 ? arr.length - 1 : current - 1);
+  // };
 
   setTimeout(() => {
     slideRight();
@@ -54,4 +54,4 @@ const Slider: FC<ISlider> = () => {
   );
 };
 
-export default Slider;
+// TODO should optimize this piece of shit in 1-2 weeks

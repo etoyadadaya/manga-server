@@ -10,6 +10,7 @@ import {ServeStaticModule} from "@nestjs/serve-static";
 import {join} from "path";
 import {Manga} from "./manga/manga.model";
 import {MangaModule} from "./manga/manga.module";
+import {UserFavorites} from "./users/user_favorites.model";
 
 @Module({
   controllers: [],
@@ -23,7 +24,7 @@ import {MangaModule} from "./manga/manga.module";
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [User, Image, Manga],
+      models: [User, Image, Manga, UserFavorites],
       autoLoadModels: true,
     }),
     ServeStaticModule.forRoot({

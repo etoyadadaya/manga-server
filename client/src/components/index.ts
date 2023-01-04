@@ -8,6 +8,7 @@ import {Menu} from "./menu/menu";
 import {Modal} from "./modal/modal";
 import {NavLink} from "./navLink/navLink";
 import {Radio} from "./radio/radio";
+import {Slider} from "./slider/slider";
 
 export {
   Button,
@@ -20,4 +21,5 @@ export {
   Modal,
   NavLink,
   Radio,
+  Slider,
 };

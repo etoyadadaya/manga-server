@@ -1,20 +1,39 @@
-import React, {FC} from "react";
+import React, {FC, useEffect, useState} from "react";
 import styles from "./modal.module.scss";
 import clsx from "clsx";
 import {IModalProps} from "./modal.types";
 import {NavLink} from "react-router-dom";
 import {Button} from "../button/button";
+import {useDeleteFavorite} from "../../hooks/useDeleteFavorite/useDeleteFavorite";
+import {useAddFavorite} from "../../hooks/useAddFavorite/useAddFavorite";
+
+// TODO ДИЗАЙН ГОВНА ВСЕ ПЕРЕДЕЛЫВАТЬ
 
 export const Modal: FC<IModalProps> = ({
   active,
   setActive,
   className,
   modalData,
+  fetchFavorites,
+  favorites,
 }) => {
   const handleClick = () => {
     document.body.style.overflow = "auto";
     setActive(false);
   };
+
+  const [isFavorite, setIsFavorite] = useState<boolean>(false);
+
+  useEffect(() => {
+    favorites.map(favorite => {
+      if (favorite.id === modalData.id) {
+        setIsFavorite(true);
+      }
+    });
+  }, [modalData]);
+
+  const deleteFavorite = useDeleteFavorite();
+  const addFavorite = useAddFavorite();
 
   return (
     <>
@@ -45,8 +64,31 @@ export const Modal: FC<IModalProps> = ({
                   >
                     Читать
                   </NavLink>
-                  <Button className={styles.read}>Отслеживать</Button>
-                  <Button className={styles.read}>Добавить в закладки</Button>
+                  {isFavorite ? (
+                    <Button
+                      onClick={() => {
+                        deleteFavorite(modalData.id).then(() => {
+                          fetchFavorites();
+                          handleClick();
+                        });
+                      }}
+                      className={styles.read}
+                    >
+                      Удалить
+                    </Button>
+                  ) : (
+                    <Button
+                      onClick={() => {
+                        addFavorite(modalData.id).then(() => {
+                          fetchFavorites();
+                          handleClick();
+                        });
+                      }}
+                      className={styles.read}
+                    >
+                      Добавить
+                    </Button>
+                  )}
                 </div>
               </div>
               <div className={styles.modalRight}>

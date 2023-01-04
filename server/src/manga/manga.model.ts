@@ -1,5 +1,14 @@
-import {Column, DataType, HasMany, Model, Table} from "sequelize-typescript";
+import {
+  BelongsToMany,
+  Column,
+  DataType,
+  HasMany,
+  Model,
+  Table,
+} from "sequelize-typescript";
 import {Image} from "../images/images.model";
+import {UserFavorites} from "../users/user_favorites.model";
+import {User} from "../users/users.model";
 
 @Table({tableName: "manga", createdAt: false, updatedAt: false})
 export class Manga extends Model {
@@ -16,7 +25,7 @@ export class Manga extends Model {
   title: string;
 
   @Column({
-    type: DataType.STRING(2048)
+    type: DataType.STRING(2048),
   })
   description: string;
 
@@ -28,13 +37,13 @@ export class Manga extends Model {
 
   @Column({
     field: "author",
-    type: DataType.STRING
+    type: DataType.STRING,
   })
   author: string;
 
   @Column({
     field: "status",
-    type: DataType.STRING
+    type: DataType.STRING,
   })
   status: string;
 
@@ -52,4 +61,7 @@ export class Manga extends Model {
 
   @HasMany(() => Image)
   images: Image[];
+
+  @BelongsToMany(() => User, () => UserFavorites)
+  favorites: Manga[];
 }

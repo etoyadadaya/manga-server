@@ -1,12 +1,15 @@
 import React, {FC, useState} from "react";
 import styles from "./styles.scss";
-import {useGetManga} from "../../hooks";
 import {Card, Header, Modal} from "../../components";
+import {useFavorites} from "../../hooks/useFavorites/useFavorites";
+import {useRequireAuth} from "../../hooks";
 
 const Profile: FC = () => {
-  const mangas = useGetManga();
+  useRequireAuth("/login");
+  const {favorites, fetchFavorites} = useFavorites();
   const [isModalActive, setModalActive] = useState<boolean>(false);
   const [modalData, setModalData] = useState<{
+    id: number;
     name: string;
     title: string;
     description: string;
@@ -22,16 +25,19 @@ const Profile: FC = () => {
         active={isModalActive}
         setActive={setModalActive}
         modalData={modalData}
+        favorites={favorites}
+        fetchFavorites={fetchFavorites}
       />
       <div className={styles.container}>
         <Header type="profile" />
         <div className={styles.manga}>
-          {mangas.map((manga, key) => (
+          {favorites.map((manga, key) => (
             <>
               <Card
                 onClick={() => {
                   setModalActive(!isModalActive);
                   setModalData({
+                    id: manga.id,
                     name: manga.name,
                     title: manga.title,
                     description: manga.description,
