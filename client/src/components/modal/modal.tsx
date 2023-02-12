@@ -7,8 +7,6 @@ import {Button} from "../button/button";
 import {useDeleteFavorite} from "../../hooks/useDeleteFavorite/useDeleteFavorite";
 import {useAddFavorite} from "../../hooks/useAddFavorite/useAddFavorite";
 
-// TODO ДИЗАЙН ГОВНА ВСЕ ПЕРЕДЕЛЫВАТЬ
-
 export const Modal: FC<IModalProps> = ({
   active,
   setActive,

@@ -1,5 +1,6 @@
 import {Model, Table} from "sequelize-typescript";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface FavoritesCreationsAttrs {}
 
 @Table({tableName: "favorites", updatedAt: false})
